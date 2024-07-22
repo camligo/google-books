@@ -1,0 +1,122 @@
+@use "../../styles/mixins.scss" as m;
+@use "../../styles/variables.scss" as v;
+
+.SearchBar {
+  display: flex;
+  align-items: center;
+  width: 500px;
+  height: 40px;
+  margin: 30px auto;
+  border-radius: 25px;
+  border: none;
+  position: relative;
+  box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.15);
+
+
+  @include m.phone {
+    width: 300px;
+    height: 50px;
+  }
+
+  &_light {
+    button {
+      background: v.$primary-light;
+      p{
+        color: v.$secondary-light;
+      }
+      &:hover {
+        background: v.$secondary-light;
+        p{
+          color: v.$primary-light;
+        }
+      }
+    }
+  }
+
+  &_dark {
+    button {
+      background: v.$primary-dark;
+      p{
+        color: v.$secondary-dark;
+      }
+      &:hover {
+        background: v.$secondary-dark;
+        p{
+          color: v.$primary-dark;
+        }
+      }
+    }
+  }
+  input {
+    flex: 1;
+    padding: 0 10px 0 40px;
+    border: 0;
+    height: 100%;
+    border-radius: 25px 0 0 25px;
+
+    &:focus {
+      outline: 0;
+    }
+  }
+
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    cursor: pointer;
+    height: 100%;
+    width: 120px;
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 0 25px 25px 0;
+    overflow: hidden;
+    position: relative;
+
+    @include m.phone {
+      width: 220px;
+    }
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+      background: white;
+      transition: width 0.5s ease;
+      z-index: 0;
+    }
+
+    &:hover:before {
+      width: 100%;
+    }
+
+    p {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      padding: 0;
+      line-height: 40px;
+    }
+
+    &:focus {
+      outline: 0;
+    }
+  }
+
+  .SearchIcon {
+    position: absolute;
+    left: 10px;
+    height: 20px;
+    width: 20px;
+    z-index: 1;
+
+    @include m.phone {
+      height: 18px;
+      width: 18px;
+    }
+  }
+}

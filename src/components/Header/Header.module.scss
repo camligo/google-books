@@ -1,0 +1,46 @@
+@use "../../styles/mixins.scss" as m;
+@use "../../styles/variables.scss" as v;
+
+.Header {
+  padding: 2em;
+  background-color: v.$bg-light;
+  color: v.$primary-light;
+
+  @include m.phone {
+    padding: 0.4em;
+  }
+
+  &_light {
+    background: v.$bg-light;
+    color: v.$secondary-light;
+  }
+
+  &_dark {
+    background: v.$bg-dark;
+    color: v.$primary-dark;
+  }
+}
+
+.MainHeader {
+  color: inherit;
+  text-align: center;
+  font-size: v.$xxl;
+
+  @include m.phone {
+    font-size: v.$xl;
+  }
+}
+
+.SubHeader {
+  color: inherit;
+  text-align: center;
+  padding-top: 24px;
+  line-height: 1.2em;
+  font-family: "Karla", "sans serif";
+  font-weight: 400;
+  font-size: v.$md;
+
+  @include m.phone {
+    font-size: v.$sm;
+  }
+}

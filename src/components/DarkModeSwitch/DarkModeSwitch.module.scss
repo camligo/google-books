@@ -1,0 +1,29 @@
+@use "../../styles/variables.scss" as v;
+
+.BtnMode {
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  top: 12px;
+  right: 20px;
+  position: relative;
+
+  &_light {
+    background: v.$bg-light;
+    border: 2px solid v.$primary-light;
+  }
+
+  &_dark {
+    background: v.$bg-dark;
+    border: 2px solid v.$primary-dark;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  .Icon {
+    width: 24px;
+    height: 24px;
+  }
+}
