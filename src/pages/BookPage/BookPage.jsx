@@ -1,5 +1,4 @@
-import { useState, useEffect } from "react";
-import { useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 import { ColorThemeContext } from "../../context/ColorThemeContextProvider/ColorThemeContextProvider";
 import { useParams } from "react-router-dom";
 import { getBookById } from "../../services/bookService";
@@ -10,8 +9,8 @@ import styles from "./BookPage.module.scss";
 
 const BookPage = () => {
   const { id } = useParams();
+  const { darkMode } = useContext(ColorThemeContext);
   const [book, setBook] = useState(null);
-
 
   useEffect(() => {
     const getBook = async () => {
@@ -30,7 +29,6 @@ const BookPage = () => {
   const defaultImage = "https://www.hachettebookgroup.com/wp-content/uploads/2017/07/missingbook.png"
   const highResImage = imageLinks ? imageLinks.thumbnail.replace('&zoom=1', '&zoom=3') : defaultImage;
 
-  const { darkMode } = useContext(ColorThemeContext);
 
   const classes = `${styles.BookPage} ${
     darkMode ? styles.BookPage_dark : styles.BookPage_light
